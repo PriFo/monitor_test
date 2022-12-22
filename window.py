@@ -29,7 +29,7 @@ INDEX: int = 0
 
 class MainWindow(Tk):
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.attributes(
             '-fullscreen',
@@ -42,13 +42,13 @@ class MainWindow(Tk):
         self.__text_exist: bool = True
         self.__grid()
 
-    def __grid(self):
+    def __grid(self) -> None:
         self.__color_frame.pack(fill='both')
         self.update()
         self.__color_btn.configure(height=self.winfo_height(), width=self.winfo_width())
         self.__color_btn.pack(fill='both')
 
-    def __on_color_btn_click(self):
+    def __on_color_btn_click(self) -> None:
         if self.__text_exist:
             self.__forget_text()
         try:
@@ -58,8 +58,8 @@ class MainWindow(Tk):
         except IndexError:
             self.destroy()
 
-    def __forget_text(self):
+    def __forget_text(self) -> None:
         self.__color_btn.configure(text='')
 
-    def start(self):
+    def start(self) -> None:
         self.mainloop()
